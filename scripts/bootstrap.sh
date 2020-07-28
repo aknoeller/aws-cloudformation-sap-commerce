@@ -114,9 +114,9 @@ unzip $HYBRISDIR/*.ZIP
 echo "Removing the Hybris Installation zip file.."
 rm $HYBRISDIR/*.ZIP
 
-echo "Set initial password.."
-aws s3 sync s3://$SCRIPTS3BUCKET/$SCRIPTKEYPREFIX/$RECIPE $HYBRISDIR/installer/recipes/$RECIPE
-sed -i  "s/nimda/$INITIALPASSWORD/g"  $HYBRISDIR/installer/recipes/$RECIPE/build.gradle
+#echo "Set initial password.."
+#aws s3 sync s3://$SCRIPTS3BUCKET/$SCRIPTKEYPREFIX/$RECIPE $HYBRISDIR/installer/recipes/$RECIPE
+#sed -i  "s/nimda/$INITIALPASSWORD/g"  $HYBRISDIR/installer/recipes/$RECIPE/build.gradle
 
 echo "Installing Java .."
 cd $HYBRISDIR
@@ -131,8 +131,8 @@ echo "Java Version: "
 java -version
 
 echo "Start Hybris.."
-$HYBRISDIR/installer/install.sh -r $RECIPE			
-$HYBRISDIR/installer/install.sh -r $RECIPE initialize
+$HYBRISDIR/installer/install.sh -r $RECIPE -A initAdminPassword=$INITIALPASSWORD
+$HYBRISDIR/installer/install.sh -r $RECIPE initialize -A initAdminPassword=$INITIALPASSWORD
 $HYBRISDIR/installer/install.sh -r $RECIPE start &
 
 # Check Database instance Status
