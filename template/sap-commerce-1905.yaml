@@ -81,7 +81,7 @@ Parameters:
       must be one of the 15 recipes listed, b2b_acc_plus, b2c_acc_cis,
       b2c_b2b_acc_cpq, b2c_c4c, marketplace_acc_china, b2b_c4c, b2c_acc_plus,
       b2c_b2b_acc_dp, b2c_china, sap_aom_som_b2b_b2c, b2b_china, b2c_acc_ymkt,
-      b2c_b2b_acc_oms, marketplace_acc, sap_oms_aom_b2b_b2c
+      b2c_b2b_acc_oms, marketplace_acc, sap_oms_aom_b2b_b2c, cx
     Description: >-
       Gradle recipes take care of creating directories, moving files, updating
       configuration and properties files, and initializing the system.
@@ -102,6 +102,7 @@ Parameters:
       - b2c_b2b_acc_oms
       - marketplace_acc
       - sap_oms_aom_b2b_b2c
+      - cx
   KeyPairName:
     ConstraintDescription: must be the name of an existing EC2 KeyPair.
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
