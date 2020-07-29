@@ -114,9 +114,9 @@ unzip $HYBRISDIR/*.ZIP
 echo "Removing the Hybris Installation zip file.."
 rm $HYBRISDIR/*.ZIP
 
-#echo "Set initial password.."
-#aws s3 sync s3://$SCRIPTS3BUCKET/$SCRIPTKEYPREFIX/$RECIPE $HYBRISDIR/installer/recipes/$RECIPE
-#sed -i  "s/nimda/$INITIALPASSWORD/g"  $HYBRISDIR/installer/recipes/$RECIPE/build.gradle
+#echo "Download recipes from S3.."
+aws s3 sync s3://$SCRIPTS3BUCKET/$SCRIPTKEYPREFIX/$RECIPE $HYBRISDIR/installer/recipes/$RECIPE
+
 
 echo "Installing Java .."
 cd $HYBRISDIR
